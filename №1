@@ -1,26 +1,29 @@
-Automobile Catalog API
-Overview
-This project implements a RESTful API for managing an automobile catalog. The API provides endpoints for creating, reading, updating, and deleting automobile records, as well as filtering and paginating data.
-Endpoints
-GET /automobiles
-Retrieve a list of automobiles with filtering and pagination capabilities.
-Filter by any field using query parameters.
-Paginate results using limit and offset query parameters.
-DELETE /automobiles/:id
-Delete an automobile by its ID.
-PATCH /automobiles/:id
-Update one or more fields of an automobile by its ID.
-POST /automobiles
-Create a new automobile with the following payload:
-json
-{
-  "regNums": ["X123XX150"] // array of government numbers
-}
+#  Automobile Catalog API
 
-Upon creation, the API will make a request to an external API (described below) to retrieve additional information.
-External API
+This project implements a RESTful API for managing an automobile catalog. The API provides endpoints for creating, reading, updating, and deleting automobile records, as well as filtering and paginating data.
+
+## Endpoints
+
+- GET /automobiles: Retrieve a list of automobiles with filtering and pagination capabilities.
+  - Filter by any field using query parameters.
+  - Paginate results using limit and offset query parameters.
+
+- DELETE /automobiles/:id: Delete an automobile by its ID.
+
+- PATCH /automobiles/:id: Update one or more fields of an automobile by its ID.
+
+- POST /automobiles: Create a new automobile with the following payload:
+  
+  {
+    "regNums": ["X123XX150"] // array of government numbers
+  }
+  
+  Upon creation, the API will make a request to an external API (described below) to retrieve additional information.
+
+## External API
+
 The external API is described using OpenAPI 3.0.3:
-yaml
+
 openapi: 3.0.3
 info:
   title: Car info
@@ -71,7 +74,9 @@ components:
         patronymic:
           type: string
 
-Implementation Requirements
+
+## Implementation Requirements
+
 1. Implement the REST API endpoints described above.
 2. Use the external API to retrieve additional information when creating a new automobile.
 3. Store enriched information in a PostgreSQL database, creating the database structure using migrations at startup.
