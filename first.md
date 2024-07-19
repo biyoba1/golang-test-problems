@@ -22,8 +22,8 @@ This project implements a RESTful API for managing an automobile catalog. The AP
 
 ## External API
 
-The external API is described using OpenAPI 3.0.3:
 
+```
 openapi: 3.0.3
 info:
   title: Car info
@@ -73,6 +73,7 @@ components:
           type: string
         patronymic:
           type: string
+```
 
 
 ## Implementation Requirements
